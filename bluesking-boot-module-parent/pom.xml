@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.bluesking.boot</groupId>
+        <artifactId>bluesking-boot-dependencies</artifactId>
+        <version>1.0.0-ALPHA</version>
+    </parent>
+    <artifactId>bluesking-boot-module-parent</artifactId>
+    <name>Bluesking Boot Module Parent</name>
+    <description>Parent pom providing dependency and plugin management for applications built with Maven, as well as the default configuration of dependencies and plugins.</description>
+    <url>https://github.com/a1023293003/bluesking-boot-dependencies/bluesking-boot-module-parent</url>
+    <properties>
+        <!-- basic configuration -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <!-- plugins configuration -->
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+    </properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin><!-- 编译插件 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration><!-- 源代码使用的JDK版本 -->
+                        <source>${maven.compiler.sourc}</source>
+                        <!-- 需要生成的目标class文件的编译版本 -->
+                        <target>${maven.compiler.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin><!-- 设置资源文件的编码方式 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
